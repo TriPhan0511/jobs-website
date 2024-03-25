@@ -3,25 +3,11 @@ import Navbar from './components/Navbar'
 import HomeCards from './components/HomeCards'
 
 const App = () => {
-  const info = [
-    {
-      title: 'For Developers',
-      subtitle: 'Browse our React jobs and start your career today',
-      link: '/jobs.html',
-      linkTitle: 'Browse Jobs',
-    },
-    {
-      title: 'For Employers',
-      subtitle: 'List your job to find the perfect developer for the role',
-      link: '/add-job.html',
-      linkTitle: 'Add Job',
-    },
-  ]
   return (
     <>
       <Navbar />
       <Hero />
-      <HomeCards info={info} />
+      <HomeCards />
 
       {/* <!-- Browse Jobs --> */}
       <section className='bg-blue-50 px-4 py-10'>
