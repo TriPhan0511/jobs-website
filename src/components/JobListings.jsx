@@ -8,12 +8,24 @@ const JobListings = ({ isHome = false }) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    let apiUrl = 'http://localhost:8000/jobs'
+    // let apiUrl = 'http://localhost:8000/jobs'
+    let apiUrl = '/api/jobs'
+    // Note: Using a proxy that was set in vite.config.js:
+    // server: {
+    //   port: 3000,
+    //   proxy: {
+    //     '/api': {
+    //       target: 'http://localhost:8000',
+    //       changeOrigin: true,
+    //       rewrite: (path) => path.replace(/^\/api/, ''),
+    //     },
+    //   },
+    // },
+
     apiUrl = isHome ? `${apiUrl}?_limit=3` : apiUrl
     const fetchJobs = async () => {
       try {
         const res = await fetch(apiUrl)
-        // const res = await fetch('http://localhost:8000/jobs')
         const data = await res.json()
         setJobs(data)
       } catch (error) {
@@ -22,7 +34,6 @@ const JobListings = ({ isHome = false }) => {
         setLoading(false)
       }
     }
-
     fetchJobs()
   }, [isHome])
 
