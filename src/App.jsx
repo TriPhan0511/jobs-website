@@ -16,7 +16,6 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path='/jobs' element={<JobsPage />} />
       <Route path='/jobs/:id' element={<JobPage />} loader={jobLoader} />
-      {/* <Route path='/jobs/:id' element={<JobPage />} /> */}
       <Route path='*' element={<NotFoundPage />} />
     </Route>
   )
